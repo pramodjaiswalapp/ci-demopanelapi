@@ -1,0 +1,2144 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Reusable Components",
+        "description": "Reusable Components Api Docs",
+        "version": "1"
+    },
+    "host": "reusable.local",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/Chat_details": {
+            "get": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Chat_details",
+                "description": "get chat conversation",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accesstoken",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "initially count=0 after that count=next_count",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "user id ",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "timestamp",
+                        "in": "query",
+                        "description": "last message time for recent messages",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "501": {
+                        "description": "Parameter missing"
+                    },
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "307": {
+                        "description": "No record found"
+                    }
+                }
+            }
+        },
+        "/Chat_list": {
+            "get": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Chat_list",
+                "description": "get chat Threads",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accesstoken",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "initially count=0 after that count=next_count",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "501": {
+                        "description": "Parameter missing"
+                    },
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "307": {
+                        "description": "No record found"
+                    }
+                }
+            }
+        },
+        "/Delete_list": {
+            "post": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Delete_list",
+                "description": "delete chat thread",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accesstoken",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "users",
+                        "in": "formData",
+                        "description": "users id as string eg <1,2,3,4>",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "501": {
+                        "description": "Parameter missing"
+                    },
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    }
+                }
+            }
+        },
+        "/Delete_message": {
+            "post": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Delete_message",
+                "description": "delete chat message",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accesstoken",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "message_id",
+                        "in": "formData",
+                        "description": "message id to delete",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sender_id",
+                        "in": "formData",
+                        "description": "sender id of that message ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "501": {
+                        "description": "Parameter missing"
+                    },
+                    "200": {
+                        "description": "Message deleted successfully"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    }
+                }
+            }
+        },
+        "/Forgot": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Forgot Password",
+                "description": "Forgot Password",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Email",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Forgot Email Send Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "211": {
+                        "description": "Email Send failed"
+                    },
+                    "302": {
+                        "description": "Email in not registered"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            }
+        },
+        "/Login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Login Information",
+                "description": "Login Information",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Password",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "formData",
+                        "description": "Unique Device Id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_token",
+                        "in": "formData",
+                        "description": "Device Token required to send push",
+                        "type": "string"
+                    },
+                    {
+                        "name": "platform",
+                        "in": "formData",
+                        "description": "1: Android and 2: iOS",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "101": {
+                        "description": "Account Blocked"
+                    },
+                    "200": {
+                        "description": "Login Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            }
+        },
+        "/managecomments": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "View the comments of a post",
+                "description": "View the comments of a post",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "post_id",
+                        "in": "query",
+                        "description": "Post Id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page no.",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Please try again"
+                    },
+                    "202": {
+                        "description": "No data found"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Update existing comment",
+                "description": "Update existing comment",
+                "operationId": "index_put",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "comment_id",
+                        "in": "formData",
+                        "description": "Review Id of review which we want to edit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "formData",
+                        "description": "New Comment",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Give comment for a post",
+                "description": "Give comment for a post",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "post_id",
+                        "in": "formData",
+                        "description": "Post Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "formData",
+                        "description": "Comment",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    },
+                    "505": {
+                        "description": "Review already exists"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Delete comment",
+                "description": "Delete comment",
+                "operationId": "index_delete",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "comment_id",
+                        "in": "formData",
+                        "description": "Comment Id of Comment which we want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            }
+        },
+        "/managefavorite": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "View the comments of a post",
+                "description": "View the comments of a post",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "User Id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page no.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "searchlike",
+                        "in": "query",
+                        "description": "Search key parameter",
+                        "type": "string"
+                    },
+                    {
+                        "name": "req_type",
+                        "in": "query",
+                        "description": "request type 1 for getting list of users",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Please try again"
+                    },
+                    "202": {
+                        "description": "No data found"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Favorite"
+                ],
+                "summary": "Make a post favorite",
+                "description": "Make a post favorite",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "formData",
+                        "description": "User Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    },
+                    "507": {
+                        "description": "Already favorite"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Unfavorite the post",
+                "description": "Unfavorite the post",
+                "operationId": "index_delete",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "formData",
+                        "description": "Comment Id of Comment which we want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            }
+        },
+        "/Managefollow": {
+            "get": {
+                "tags": [
+                    "Follow-Following"
+                ],
+                "summary": "View the lists",
+                "description": "View the follow,following and user list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page no.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "req_type",
+                        "in": "query",
+                        "description": "Req type 1 for getting followers list,2 for getting following list and 3 for getting users list",
+                        "type": "string"
+                    },
+                    {
+                        "name": "searchlike",
+                        "in": "query",
+                        "description": "Send search string on this key",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Please try again"
+                    },
+                    "202": {
+                        "description": "No data found"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Follow"
+                ],
+                "summary": "Follow a user",
+                "description": "Follow a user",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "formData",
+                        "description": "Receiver Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    },
+                    "506": {
+                        "description": "You have already followed that user"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Follow-Following"
+                ],
+                "summary": "Unfollow",
+                "description": "Unfollow users",
+                "operationId": "index_delete",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "formData",
+                        "description": "user Id of user whom we want to unfollow",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            }
+        },
+        "/Managefriends": {
+            "get": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "Manage Request and list",
+                "description": "Manage friend list,pending request,sent pending request,all users list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "req_type",
+                        "in": "query",
+                        "description": "Req type 1 pending request,2 sent pending request,3 get all users list and empty for getting friends list",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Please try again"
+                    },
+                    "202": {
+                        "description": "No data found"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "Manage friend request",
+                "description": "Manage friend request",
+                "operationId": "index_put",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sender_id",
+                        "in": "formData",
+                        "description": "Sender Id of user who will has send the request",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "status",
+                        "in": "formData",
+                        "description": "New status of request 1",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "Send friend request",
+                "description": "Send friend request",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "receiver_id",
+                        "in": "formData",
+                        "description": "Receiver Id of user who will receive request",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request sent"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    },
+                    "500": {
+                        "description": "Request already sent by user"
+                    },
+                    "501": {
+                        "description": "Request already received by user"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "Manage friend request",
+                "description": "Reject received or sent request",
+                "operationId": "index_delete",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "formData",
+                        "description": "Sender Id of user who send request",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "req type",
+                        "in": "formData",
+                        "description": "Req type 1 if wants to reject the request 2 if wants to cancel sent pending request",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            }
+        },
+        "/Managereviews": {
+            "get": {
+                "tags": [
+                    "Reviews"
+                ],
+                "summary": "View the reviews of a post",
+                "description": "View the reviews of a post",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "post_id",
+                        "in": "query",
+                        "description": "Post Id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page no.",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Please try again"
+                    },
+                    "202": {
+                        "description": "No data found"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reviews"
+                ],
+                "summary": "Update existing review",
+                "description": "Update existing review",
+                "operationId": "index_put",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "review_id",
+                        "in": "formData",
+                        "description": "Review Id of review which we want to edit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "rating",
+                        "in": "formData",
+                        "description": "New Rating",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "review",
+                        "in": "formData",
+                        "description": "Review text",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reviews"
+                ],
+                "summary": "Give review for a post",
+                "description": "Give review for a post",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "post_id",
+                        "in": "formData",
+                        "description": "Post Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "review",
+                        "in": "formData",
+                        "description": "Review",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "rating",
+                        "in": "formData",
+                        "description": "Rating",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    },
+                    "505": {
+                        "description": "Review already exists"
+                    }
+                }
+            }
+        },
+        "/Delete Review": {
+            "delete": {
+                "tags": [
+                    "Reviews"
+                ],
+                "summary": "Delete Review",
+                "description": "Managereviews",
+                "operationId": "index_delete",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "review_id",
+                        "in": "formData",
+                        "description": "Review Id of review which we want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            }
+        },
+        "/Mark_read": {
+            "post": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Mark as read",
+                "description": "Mark message as read",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accesstoken",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "users",
+                        "in": "formData",
+                        "description": "users eg<1,2,3>",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "501": {
+                        "description": "Parameter missing"
+                    },
+                    "200": {
+                        "description": "Chat read successfully"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    }
+                }
+            }
+        },
+        "/Resetpass": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Reset Password",
+                "description": "Reset Password",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "userId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "New password",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reset Password Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "301": {
+                        "description": "Password already set"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    },
+                    "501": {
+                        "description": "Please try again"
+                    }
+                }
+            }
+        },
+        "/Send_message": {
+            "post": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Send message",
+                "description": "Send chat messages",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accesstoken",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_user",
+                        "in": "formData",
+                        "description": "other user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "message_type",
+                        "in": "formData",
+                        "description": "type of message 1: text message, 2: image,3: video,4: image and video ",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "message_text",
+                        "in": "formData",
+                        "description": "text message",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "message_media",
+                        "in": "formData",
+                        "description": "image url if any",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "501": {
+                        "description": "Parameter missing"
+                    },
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    }
+                }
+            }
+        },
+        "/Signup": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Singup Information",
+                "description": "Singup Information",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "formData",
+                        "description": "Users first name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "formData",
+                        "description": "Users last name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Password",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "gender",
+                        "in": "formData",
+                        "description": "1: Male, 2: Female",
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "description": "Phone Number",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dob",
+                        "in": "formData",
+                        "description": "Date of Birth m/d/Y",
+                        "type": "string"
+                    },
+                    {
+                        "name": "address",
+                        "in": "formData",
+                        "description": "Address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_lat",
+                        "in": "formData",
+                        "description": "Lattitude",
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_long",
+                        "in": "formData",
+                        "description": "Longitude",
+                        "type": "string"
+                    },
+                    {
+                        "name": "country_id",
+                        "in": "formData",
+                        "description": "country Id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "state_id",
+                        "in": "formData",
+                        "description": "State Id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "city_id",
+                        "in": "formData",
+                        "description": "City Id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "formData",
+                        "description": "Unique Device Id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_token",
+                        "in": "formData",
+                        "description": "Device Token required to send push",
+                        "type": "string"
+                    },
+                    {
+                        "name": "platform",
+                        "in": "formData",
+                        "description": "1: Android and 2: iOS",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Signup Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "421": {
+                        "description": "File Upload Failed"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            }
+        },
+        "/Changepassword": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Change Password",
+                "description": "Change Password",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "oldpassword",
+                        "in": "formData",
+                        "description": "oldpassword",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "New password",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reset Password Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    },
+                    "490": {
+                        "description": "Old password not matched"
+                    },
+                    "491": {
+                        "description": "New and Old password are same"
+                    },
+                    "501": {
+                        "description": "Please try again"
+                    }
+                }
+            }
+        },
+        "/Chat": {
+            "get": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Chat_list",
+                "description": "get chat Threads",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accesstoken",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "action",
+                        "in": "query",
+                        "description": "Get 3 sec msg action 1 Get list of all people whom we have chatted out 2 \n     *     View Detail  between two users 3 Delete spacific chat 4 Delete chat between two users 5",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_user_id",
+                        "in": "query",
+                        "description": "Mandatory for action 3 and 5 when action 5 then in json formate multy user id ",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "for pagination page ",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "msg_id",
+                        "in": "query",
+                        "description": "message id for delete",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "last_msg_time",
+                        "in": "query",
+                        "description": "Latest chat after last message time in unixtimestamp",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "418": {
+                        "description": "Parameter missing"
+                    },
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "307": {
+                        "description": "No record found"
+                    }
+                }
+            }
+        },
+        "/chat": {
+            "post": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Send message",
+                "description": "Send chat messages",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accesstoken",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_user_id",
+                        "in": "formData",
+                        "description": "other user",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "chat_type",
+                        "in": "formData",
+                        "description": "type of message 1: text message, 2: image ",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "msg",
+                        "in": "formData",
+                        "description": "text message",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "message_media",
+                        "in": "formData",
+                        "description": "image url if any",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "418": {
+                        "description": "Parameter missing"
+                    },
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Try again"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    }
+                }
+            }
+        },
+        "/address": {
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Get address information",
+                "description": "Get country,state and city list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "description": "hit with country code to get list of state belongs to it",
+                        "type": "string"
+                    },
+                    {
+                        "name": "state_code",
+                        "in": "query",
+                        "description": "hit it with country code to get list of city belongs to it",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Please try again"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    }
+                }
+            }
+        },
+        "/Logout": {
+            "put": {
+                "tags": [
+                    "Logout"
+                ],
+                "summary": "Logout and exit the session",
+                "description": "Logout and exit the session",
+                "operationId": "index_put",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    }
+                }
+            }
+        },
+        "api/feeds": {
+            "post": {
+                "tags": [
+                    "Feeds"
+                ],
+                "summary": "get feeds list",
+                "description": "get all feeds list",
+                "operationId": "feeds_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accesstoken",
+                        "in": "query",
+                        "description": "Access token received during signup or login",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "206": {
+                        "description": "Unauthorized request"
+                    },
+                    "207": {
+                        "description": "Header is missing"
+                    },
+                    "418": {
+                        "description": "Required Parameter Missing or Invalid"
+                    },
+                    "510": {
+                        "description": "You can't post a empty feed"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "securityDefinitions": {
+        "basicAuth": {
+            "type": "basic",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "security": [
+        {
+            "basicAuth": [
+                ""
+            ]
+        }
+    ],
+    "tags": [
+        {
+            "name": "User",
+            "description": ""
+        }
+    ]
+}

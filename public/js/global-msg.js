@@ -1,0 +1,22 @@
+var string = {
+    'cannotAccept': '<div class="alert alert-danger alert-dismissable" style="margin-bottom:0px">Yo can not accept this request.<button aria-hidden="true" data-dismiss="alert" class="close" type="button">x</button><strong></div>'
+    , 'successPrefix': '<label class="alert alert-success alert-dismissable" style="margin-bottom:0px;"><button aria-hidden="true" data-dismiss="alert" class="close" type="button">x</button><strong>Success! </strong>'
+    , 'successSuffix': '</label>'
+    , 'replaced': '<div class="alert alert-success alert-dismissable" style="margin-bottom:0px">You have successfully replaced this doctor.<button aria-hidden="true" data-dismiss="alert" class="close" type="button">x</button><strong></div>'
+    , 'replaceError': '<div class="alert alert-danger alert-dismissable" style="margin-bottom:0px">Error in replacing the doctor.<button aria-hidden="true" data-dismiss="alert" class="close" type="button">x</button><strong></div>'
+    , 'block_success': 'Blocked successfully'
+    , 'unblock_success': 'Unblocked successfully'
+    , 'newpasswordEmpty': 'New password field can not be empty.'
+    , 'oldpasswordEmpty': 'Old password field can not be empty.'
+    , 'confirmpasswordEmpty': 'Confirm password field can not be empty.'
+    , 'passwordnotmatch': 'Passwords do not match.'
+    , 'loginemail': 'Please enter your registered email address'
+    , 'loginpassword': 'Please enter your password'
+    , 'passwordMinLength': 'Password should be minimum 8 character'
+    , 'cnfPassowrdErr': 'Please enter confirm password same as password'
+    , 'passwordErr': 'Please enter a password between 8 to 16 character'
+    , 'requiredErr': 'This field is required'
+    , 'emailErr': 'Please enter a valid email address'
+    , 'success': 'Success!'
+
+};

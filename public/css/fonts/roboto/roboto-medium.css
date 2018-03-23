@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../../../fonts/roboto/Roboto-Medium.eot');
+    src: url('../../../fonts/roboto/Roboto-Medium.woff2') format('woff2'), url('../../../fonts/roboto/Roboto-Medium.woff') format('woff'), url('../../../fonts/roboto/Roboto-Medium.ttf') format('truetype'), url('../../../fonts/roboto/Roboto-Medium.svg#Roboto-Medium') format('svg'), url('../../../fonts/roboto/Roboto-Medium.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
